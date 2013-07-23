@@ -22,8 +22,9 @@ public class CollisionSystem extends EntitySystem {
 	
 	private Bag<CollisionPair> collisionPairs;
 
+	@SuppressWarnings("unchecked")
 	public CollisionSystem() {
-		super(Aspect.getAspectFor(Position.class, Bounds.class));
+		super(Aspect.getAspectForAll(Position.class, Bounds.class));
 	}
 
 	@Override
@@ -31,11 +32,14 @@ public class CollisionSystem extends EntitySystem {
 		collisionPairs = new Bag<CollisionPair>();
 		
 		collisionPairs.add(new CollisionPair(Constants.Groups.PLAYER_BULLETS, Constants.Groups.ENEMY_SHIPS, new CollisionHandler() {
+			@SuppressWarnings("synthetic-access")
 			@Override
 			public void handleCollision(Entity bullet, Entity ship) {
 				Position bp = pm.get(bullet);
 				EntityFactory.createExplosion(world, bp.x, bp.y, 0.1f).addToWorld();
-				for(int i = 0; 50 > i; i++) EntityFactory.createParticle(world, bp.x, bp.y).addToWorld();
+				for(int i = 0; 50 > i; i++) {
+					EntityFactory.createParticle(world, bp.x, bp.y).addToWorld();
+				}
 				bullet.deleteFromWorld();
 
 				Health health = hm.get(ship);
@@ -69,6 +73,7 @@ public class CollisionSystem extends EntitySystem {
 		private ImmutableBag<Entity> groupEntitiesB;
 		private CollisionHandler handler;
 
+		@SuppressWarnings("synthetic-access")
 		public CollisionPair(String group1, String group2, CollisionHandler handler) {
 			groupEntitiesA = world.getManager(GroupManager.class).getEntities(group1);
 			groupEntitiesB = world.getManager(GroupManager.class).getEntities(group2);

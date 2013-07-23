@@ -14,6 +14,7 @@ public class SpaceshipWarrior extends Game {
 		setScreen(new GameScreen(this));
 	}
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		ImagePacker.run();
 		
@@ -21,10 +22,8 @@ public class SpaceshipWarrior extends Game {
 		lwjglApplicationConfiguration.fullscreen = false;
 		lwjglApplicationConfiguration.width = FRAME_WIDTH;
 		lwjglApplicationConfiguration.height = FRAME_HEIGHT;
-		lwjglApplicationConfiguration.useCPUSynch = false;
 		lwjglApplicationConfiguration.vSyncEnabled = false;
 		lwjglApplicationConfiguration.title = "Spaceship Warrior";
 		new LwjglApplication(new SpaceshipWarrior(), lwjglApplicationConfiguration);
 	}
-
 }

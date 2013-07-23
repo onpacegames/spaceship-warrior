@@ -15,6 +15,7 @@ public class EntitySpawningTimerSystem extends VoidEntitySystem {
 
 	public EntitySpawningTimerSystem() {
 		timer1 = new Timer(2, true) {
+			@SuppressWarnings("synthetic-access")
 			@Override
 			public void execute() {
 				EntityFactory.createEnemyShip(world, "enemy1", Sprite.Layer.ACTORS_3, 10, MathUtils.random(-SpaceshipWarrior.FRAME_WIDTH / 2, SpaceshipWarrior.FRAME_WIDTH / 2), SpaceshipWarrior.FRAME_HEIGHT / 2 + 50, 0, -40, 20).addToWorld();
@@ -22,6 +23,7 @@ public class EntitySpawningTimerSystem extends VoidEntitySystem {
 		};
 
 		timer2 = new Timer(6, true) {
+			@SuppressWarnings("synthetic-access")
 			@Override
 			public void execute() {
 				EntityFactory.createEnemyShip(world, "enemy2", Sprite.Layer.ACTORS_2, 20, MathUtils.random(-SpaceshipWarrior.FRAME_WIDTH / 2, SpaceshipWarrior.FRAME_WIDTH / 2), SpaceshipWarrior.FRAME_HEIGHT / 2 + 100, 0, -30, 40).addToWorld();
@@ -29,6 +31,7 @@ public class EntitySpawningTimerSystem extends VoidEntitySystem {
 		};
 
 		timer3 = new Timer(12, true) {
+			@SuppressWarnings("synthetic-access")
 			@Override
 			public void execute() {
 				EntityFactory.createEnemyShip(world, "enemy3", Sprite.Layer.ACTORS_1, 60, MathUtils.random(-SpaceshipWarrior.FRAME_WIDTH / 2, SpaceshipWarrior.FRAME_WIDTH / 2), SpaceshipWarrior.FRAME_HEIGHT / 2 + 200, 0, -20, 70).addToWorld();
@@ -42,5 +45,4 @@ public class EntitySpawningTimerSystem extends VoidEntitySystem {
 		timer2.update(world.delta);
 		timer3.update(world.delta);
 	}
-
 }

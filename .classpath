@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="lib" path="libs/kryonet/asm-3.2.jar"/>
+	<classpathentry kind="lib" path="libs/kryonet/kryo-1.02.jar"/>
+	<classpathentry kind="lib" path="libs/kryonet/kryonet-1.02.jar"/>
+	<classpathentry kind="lib" path="libs/kryonet/minlog-1.2.jar"/>
+	<classpathentry kind="lib" path="libs/kryonet/reflectasm-1.0.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx-backend-lwjgl-natives.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx-backend-lwjgl.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx-natives.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx-openal.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx-tools.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/gdx.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/sources/gdx-backend-lwjgl-sources.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/sources/gdx-openal-sources.jar"/>
+	<classpathentry kind="lib" path="libs/libgdx/sources/gdx-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="libs/artemis.jar" sourcepath="libs/artemis-src.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

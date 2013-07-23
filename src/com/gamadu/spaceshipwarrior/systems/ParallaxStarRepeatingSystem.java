@@ -13,8 +13,9 @@ public class ParallaxStarRepeatingSystem extends IntervalEntityProcessingSystem 
 	@Mapper
 	ComponentMapper<Position> pm;
 
+	@SuppressWarnings("unchecked")
 	public ParallaxStarRepeatingSystem() {
-		super(Aspect.getAspectFor(ParallaxStar.class, Position.class), 1);
+		super(Aspect.getAspectForAll(ParallaxStar.class, Position.class), 1);
 	}
 
 	@Override
@@ -25,5 +26,4 @@ public class ParallaxStarRepeatingSystem extends IntervalEntityProcessingSystem 
 			position.y = SpaceshipWarrior.FRAME_HEIGHT / 2;
 		}
 	}
-
 }

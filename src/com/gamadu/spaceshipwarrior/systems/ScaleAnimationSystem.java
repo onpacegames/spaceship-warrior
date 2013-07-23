@@ -9,13 +9,12 @@ import com.gamadu.spaceshipwarrior.components.ScaleAnimation;
 import com.gamadu.spaceshipwarrior.components.Sprite;
 
 public class ScaleAnimationSystem extends EntityProcessingSystem {
-	@Mapper
-	ComponentMapper<ScaleAnimation> sa;
-	@Mapper
-	ComponentMapper<Sprite> sm;
+	@Mapper ComponentMapper<ScaleAnimation> sa;
+	@Mapper ComponentMapper<Sprite> sm;
 
+	@SuppressWarnings("unchecked")
 	public ScaleAnimationSystem() {
-		super(Aspect.getAspectFor(ScaleAnimation.class));
+		super(Aspect.getAspectForAll(ScaleAnimation.class));
 	}
 
 	@Override
@@ -36,5 +35,4 @@ public class ScaleAnimationSystem extends EntityProcessingSystem {
 			}
 		}
 	}
-
 }

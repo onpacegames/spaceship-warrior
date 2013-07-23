@@ -16,27 +16,28 @@ import com.gamadu.spaceshipwarrior.components.Position;
 import com.gamadu.spaceshipwarrior.components.Velocity;
 
 public class PlayerInputSystem extends EntityProcessingSystem implements InputProcessor {
-	private static final float HorizontalThrusters = 300;
-	private static final float HorizontalMaxSpeed = 300;
-	private static final float VerticalThrusters = 200;
-	private static final float VerticalMaxSpeed = 200;
+//	private static final float HorizontalThrusters = 300;
+//	private static final float HorizontalMaxSpeed = 300;
+//	private static final float VerticalThrusters = 200;
+//	private static final float VerticalMaxSpeed = 200;
 	private static final float FireRate = 0.1f;
 	
 	@Mapper ComponentMapper<Position> pm;
 	@Mapper ComponentMapper<Velocity> vm;
-	
-	private boolean up, down, left, right;
+
+//	private boolean up, down, left, right;
 	private boolean shoot;
 	private float timeToFire;
 	
-	private float destinationX, destinationY;
+//	private float destinationX, destinationY;
 	private OrthographicCamera camera;
 	private Vector3 mouseVector;
 	
+	@SuppressWarnings("unchecked")
 	public PlayerInputSystem(OrthographicCamera camera) {
-		super(Aspect.getAspectFor(Position.class, Velocity.class, Player.class));
+		super(Aspect.getAspectForAll(Position.class, Velocity.class, Player.class));
 		this.camera = camera;
-		this.mouseVector = new Vector3();
+		mouseVector = new Vector3();
 	}
 	
 	@Override
@@ -47,13 +48,13 @@ public class PlayerInputSystem extends EntityProcessingSystem implements InputPr
 	@Override
 	protected void process(Entity e) {
 		Position position = pm.get(e);
-		Velocity velocity = vm.get(e);
+//		Velocity velocity = vm.get(e);
 		
 		mouseVector.set(Gdx.input.getX(), Gdx.input.getY(), 0);
 		camera.unproject(mouseVector);
 		
-		destinationX = mouseVector.x;
-		destinationY = mouseVector.y;
+//		destinationX = mouseVector.x;
+//		destinationY = mouseVector.y;
 		
 		//float angleInRadians = Utils.angleInRadians(position.x, position.y, destinationX, destinationY);
 		
@@ -95,36 +96,36 @@ public class PlayerInputSystem extends EntityProcessingSystem implements InputPr
 
 	@Override
 	public boolean keyDown(int keycode) {
-		if(keycode == Input.Keys.A) {
-			left = true;
-		}
-		else if(keycode == Input.Keys.D) {
-			right = true;
-		}
-		else if(keycode == Input.Keys.W) {
-			up = true;
-		}
-		else if(keycode == Input.Keys.S) {
-			down = true;
-		}
+//		if(keycode == Input.Keys.A) {
+//			left = true;
+//		}
+//		else if(keycode == Input.Keys.D) {
+//			right = true;
+//		}
+//		else if(keycode == Input.Keys.W) {
+//			up = true;
+//		}
+//		else if(keycode == Input.Keys.S) {
+//			down = true;
+//		}
 		
 		return true;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		if(keycode == Input.Keys.A) {
-			left = false;
-		}
-		else if(keycode == Input.Keys.D) {
-			right = false;
-		}
-		else if(keycode == Input.Keys.W) {
-			up = false;
-		}
-		else if(keycode == Input.Keys.S) {
-			down = false;
-		}
+//		if(keycode == Input.Keys.A) {
+//			left = false;
+//		}
+//		else if(keycode == Input.Keys.D) {
+//			right = false;
+//		}
+//		else if(keycode == Input.Keys.W) {
+//			up = false;
+//		}
+//		else if(keycode == Input.Keys.S) {
+//			down = false;
+//		}
 		
 		return true;
 	}
@@ -156,7 +157,7 @@ public class PlayerInputSystem extends EntityProcessingSystem implements InputPr
 	}
 
 	@Override
-	public boolean touchMoved(int x, int y) {
+	public boolean mouseMoved(int x, int y) {
 		return false;
 	}
 

@@ -10,8 +10,8 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.gamadu.spaceshipwarrior.systems.CollisionSystem;
 import com.gamadu.spaceshipwarrior.systems.ColorAnimationSystem;
-import com.gamadu.spaceshipwarrior.systems.ExpiringSystem;
 import com.gamadu.spaceshipwarrior.systems.EntitySpawningTimerSystem;
+import com.gamadu.spaceshipwarrior.systems.ExpiringSystem;
 import com.gamadu.spaceshipwarrior.systems.HealthRenderSystem;
 import com.gamadu.spaceshipwarrior.systems.HudRenderSystem;
 import com.gamadu.spaceshipwarrior.systems.MovementSystem;
@@ -22,7 +22,7 @@ import com.gamadu.spaceshipwarrior.systems.ScaleAnimationSystem;
 import com.gamadu.spaceshipwarrior.systems.SpriteRenderSystem;
 
 public class GameScreen implements Screen {
-	private Game game;
+//	private Game game;
 	private World world;
 	private OrthographicCamera camera;
 	
@@ -31,8 +31,8 @@ public class GameScreen implements Screen {
 	private HudRenderSystem hudRenderSystem;
 
 	public GameScreen(Game game) {
-		this.game = game;
-		this.camera = new OrthographicCamera(SpaceshipWarrior.FRAME_WIDTH, SpaceshipWarrior.FRAME_HEIGHT);
+//		this.game = game;
+		camera = new OrthographicCamera(SpaceshipWarrior.FRAME_WIDTH, SpaceshipWarrior.FRAME_HEIGHT);
 		
 		world = new World();
 

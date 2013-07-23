@@ -12,8 +12,9 @@ public class ColorAnimationSystem extends EntityProcessingSystem {
 	@Mapper ComponentMapper<ColorAnimation> cam;
 	@Mapper ComponentMapper<Sprite> sm;
 
+	@SuppressWarnings("unchecked")
 	public ColorAnimationSystem() {
-		super(Aspect.getAspectFor(ColorAnimation.class, Sprite.class));
+		super(Aspect.getAspectForAll(ColorAnimation.class, Sprite.class));
 	}
 
 	@Override
@@ -33,5 +34,4 @@ public class ColorAnimationSystem extends EntityProcessingSystem {
 			}
 		}
 	}
-
 }

@@ -12,8 +12,9 @@ public class MovementSystem extends EntityProcessingSystem {
 	@Mapper ComponentMapper<Position> pm;
 	@Mapper ComponentMapper<Velocity> vm;
 
+	@SuppressWarnings("unchecked")
 	public MovementSystem() {
-		super(Aspect.getAspectFor(Position.class, Velocity.class));
+		super(Aspect.getAspectForAll(Position.class, Velocity.class));
 	}
 
 	@Override
@@ -24,5 +25,4 @@ public class MovementSystem extends EntityProcessingSystem {
 		position.x += velocity.vectorX*world.delta;
 		position.y += velocity.vectorY*world.delta;
 	}
-
 }

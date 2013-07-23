@@ -8,9 +8,9 @@ import com.artemis.systems.DelayedEntityProcessingSystem;
 import com.gamadu.spaceshipwarrior.components.Expires;
 
 public class ExpiringSystem extends DelayedEntityProcessingSystem {
-	@Mapper
-	ComponentMapper<Expires> em;
+	@Mapper ComponentMapper<Expires> em;
 
+	@SuppressWarnings("unchecked")
 	public ExpiringSystem() {
 		super(Aspect.getAspectForAll(Expires.class));
 	}

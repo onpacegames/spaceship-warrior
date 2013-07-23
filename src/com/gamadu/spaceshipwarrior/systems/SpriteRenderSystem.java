@@ -11,7 +11,6 @@ import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.EntitySystem;
 import com.artemis.annotations.Mapper;
-import com.artemis.systems.EntityProcessingSystem;
 import com.artemis.utils.Bag;
 import com.artemis.utils.ImmutableBag;
 import com.badlogic.gdx.Gdx;
@@ -23,8 +22,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.gamadu.spaceshipwarrior.components.Enemy;
-import com.gamadu.spaceshipwarrior.components.Player;
 import com.gamadu.spaceshipwarrior.components.Position;
 import com.gamadu.spaceshipwarrior.components.Sprite;
 
@@ -43,6 +40,7 @@ public class SpriteRenderSystem extends EntitySystem {
 	private Bag<AtlasRegion> regionsByEntity;
 	private List<Entity> sortedEntities;
 
+	@SuppressWarnings("unchecked")
 	public SpriteRenderSystem(OrthographicCamera camera) {
 		super(Aspect.getAspectForAll(Position.class, Sprite.class));
 		this.camera = camera;
@@ -95,13 +93,14 @@ public class SpriteRenderSystem extends EntitySystem {
 		AtlasRegion spriteRegion = regionsByEntity.get(e.getId());
 		batch.setColor(sprite.r, sprite.g, sprite.b, sprite.a);
 
-		float posX = position.x - (spriteRegion.getRegionWidth() / 2 * sprite.scaleX);
-		float posY = position.y - (spriteRegion.getRegionHeight() / 2 * sprite.scaleX);
+		float posX = position.x - spriteRegion.getRegionWidth() / 2 * sprite.scaleX;
+		float posY = position.y - spriteRegion.getRegionHeight() / 2 * sprite.scaleX;
 		batch.draw(spriteRegion, posX, posY, 0, 0, spriteRegion.getRegionWidth(), spriteRegion.getRegionHeight(), sprite.scaleX, sprite.scaleY, sprite.rotation);
 		// GdxUtils.drawCentered(batch, spriteRegion, position.x, position.y);
 		}
 	}
 
+	@Override
 	protected void end() {
 		batch.end();
 	}
